@@ -1,0 +1,1 @@
+# golden-agents-notarial-coordinates
