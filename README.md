@@ -25,6 +25,7 @@ done
 
 #### Mapping
 
+##### person uuid to deed uri
 ```sparql
 PREFIX roar: <https://data.goldenagents.org/ontology/roar/>
 SELECT ?person_uuid ?deed WHERE {
@@ -37,6 +38,22 @@ SELECT ?person_uuid ?deed WHERE {
 
     BIND(STRAFTER(STR(?person), '?person=') AS ?person_uuid)
  }
+```
+
+##### scanname to scan uri
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX roar: <https://data.goldenagents.org/ontology/roar/>
+SELECT DISTINCT ?scanname ?scan WHERE {
+    
+    ?deed a roar:IndexDocument ;
+          roar:onScan ?scan ;
+          roar:memberOf <https://data.goldenagents.org/datasets/saa/a2a/08953f2f-309c-baf9-e5b1-0cefe3891b37> . # notariële archieven a2a
+    
+    ?scan a roar:Scan ;
+          rdfs:label ?scanname .
+    
+}
 ```
 
 ## Contact
