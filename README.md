@@ -27,14 +27,14 @@ done
 
 ##### person uuid to deed uri
 ```sparql
-PREFIX roar: <https://data.goldenagents.org/ontology/roar/>
+PREFIX rpp: <https://data.goldenagents.org/ontology/roar/>
 SELECT ?person_uuid ?deed WHERE {
 
-    ?deed a roar:IndexDocument ;
-          roar:mentionsPerson ?person ;
-          roar:memberOf <https://data.goldenagents.org/datasets/saa/a2a/08953f2f-309c-baf9-e5b1-0cefe3891b37> . # notariële archieven a2a
+    ?deed a rpp:IndexDocument ;
+          rpp:mentionsPerson ?person ;
+          rpp:memberOf <https://data.goldenagents.org/datasets/saa/a2a/08953f2f-309c-baf9-e5b1-0cefe3891b37> . # notariële archieven a2a
 
-    ?person a roar:Person .
+    ?person a rpp:Person .
 
     BIND(STRAFTER(STR(?person), '?person=') AS ?person_uuid)
  }
@@ -43,14 +43,14 @@ SELECT ?person_uuid ?deed WHERE {
 ##### scanname to scan uri
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX roar: <https://data.goldenagents.org/ontology/roar/>
+PREFIX rpp: <https://data.goldenagents.org/ontology/roar/>
 SELECT DISTINCT ?scanname ?scan WHERE {
     
-    ?deed a roar:IndexDocument ;
-          roar:onScan ?scan ;
-          roar:memberOf <https://data.goldenagents.org/datasets/saa/a2a/08953f2f-309c-baf9-e5b1-0cefe3891b37> . # notariële archieven a2a
+    ?deed a rpp:IndexDocument ;
+          rpp:onScan ?scan ;
+          rpp:memberOf <https://data.goldenagents.org/datasets/saa/a2a/08953f2f-309c-baf9-e5b1-0cefe3891b37> . # notariële archieven a2a
     
-    ?scan a roar:Scan ;
+    ?scan a rpp:Scan ;
           rdfs:label ?scanname .
     
 }

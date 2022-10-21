@@ -3,7 +3,6 @@ main
 
 Usage:
     main.py <inputfolder> <outputfolder>
-    main.py <inputfolder> <outputfolder> --mappingfile 'mapping/person_uuid2deed_uri.json'
     main.py <inputfolder> <outputfolder> --output RDF
     main.py (-h | --help)
 
@@ -13,7 +12,6 @@ Arguments:
 
 Options:
     -h --help       Show this screen.
-    --mappingfile   Location of the person_uuid to deed URI file [default: "mapping/person_uuid2deed_uri.json"]
     --output (CSV|RDF) [default: CSV]
 """
 
@@ -26,6 +24,7 @@ Options:
 
 import os
 import json
+from typing import Union
 
 import pandas as pd
 
@@ -40,9 +39,17 @@ with open("mapping/person_uuid2deed_uri.json") as infile:
     person_uuid2deed_uri = json.load(infile)
 
 
-def parse_files(folder_path: str, output="CSV"):
+def parse_files(input_folder_path: str, output_folder_path: str, output="CSV"):
+    """
+    Parse the files in the input folder and save the data to the output folder.
+    
+    Args:
+        input_folder_path (str): The input folder path.
+        output_folder_path (str): The output folder path.
+        output (str, optional): The output format. Defaults to "CSV".
+    """
 
-    filenames = os.listdir(folder_path)
+    filenames = os.listdir(input_folder_path)
     filenames = [i for i in sorted(filenames) if i.endswith(".xml.gz")]
 
     record_data_all = []
@@ -51,37 +58,70 @@ def parse_files(folder_path: str, output="CSV"):
     # Parse every file in the folder
     for fn in filenames:
         print(f"Parsing {fn}...")
-        fpath = os.path.join(folder_path, fn)
+        fpath = os.path.join(input_folder_path, fn)
 
         tree = ET.parse(fpath)
         record_data, location_data = get_records(tree)
 
-        record_data_all += record_data
-        location_data_all += location_data
-
-        break
+        # Let's do this per file, for the sake of memory
+        if output == "RDF":
+            save_to_rdf(record_data, location_data, output_folder_path, fn)
+        else:
+            record_data_all += record_data
+            location_data_all += location_data
 
     # And then save it somewhere
     if output == "CSV":
-        save_to_csv(record_data_all, location_data_all)
-
-    elif output == "RDF":
-
-        save_to_rdf(record_data_all, location_data_all)
+        save_to_csv(record_data_all, location_data_all, output_folder_path)
 
 
-def save_to_csv(record_data, location_data):
+def save_to_csv(record_data: list, location_data: list, folder_path: str):
+    """
+    Save the data to CSV files.
+    
+    Args:
+        record_data (list): The record data.
+        location_data (list): The location data.
+        folder_path (str): The folder path.
+    """
+
     print("Saving as CSV!")
 
     df_records = pd.DataFrame(record_data)
     df_locations = pd.DataFrame(location_data)
 
-    df_records.to_csv(os.path.join(folder_path, f"records.csv"), index=False)
-    df_locations.to_csv(os.path.join(folder_path, f"locations.csv"), index=False)
+    # We can round this. The used precision makes no sense on pixels?
+    df_records["begin_coordinates"] = [
+        f"{round(i[0])},{round(i[1])}" for i in df_records["begin_coordinates"]
+    ]
+    df_records["end_coordinates"] = [
+        f"{round(i[0])},{round(i[1])}" for i in df_records["end_coordinates"]
+    ]
+
+    df_locations["xywh"] = [
+        f"{i[0]},{i[1]},{i[2]},{i[3]}" for i in df_locations["xywh"]
+    ]
+
+    df_records.to_csv(os.path.join(folder_path, "records.csv"), index=False)
+    df_locations.to_csv(os.path.join(folder_path, "locations.csv"), index=False)
 
 
-def save_to_rdf(record_data, location_data, format="turtle"):
-    print("Saving as RDF!")
+def save_to_rdf(
+    record_data, location_data, folder_path, filename, format="turtle"
+):  # EXPERIMENTAL!
+    """
+    Save the data to RDF. Experimental!
+    
+    Args:
+        record_data (list): A list of dicts with record data.
+        location_data (list): A list of dicts with location data.
+        folder_path (str): The folder to save the RDF files to.
+        filename (str): The filename to save the RDF file to.
+        format (str): The format to save the RDF files as.
+    """
+
+    print(f"Saving as RDF: {filename}")
+
     from rdflib import (
         ConjunctiveGraph,
         Literal,
@@ -133,8 +173,8 @@ def save_to_rdf(record_data, location_data, format="turtle"):
             pointSelector.add(
                 RDF.type, PREZI.PointSelector
             )  # This does not exist, see: https://iiif.io/api/annex/openannotation/
-            pointSelector.add(PREZI.x, Literal(x, datatype=XSD.decimal))
-            pointSelector.add(PREZI.y, Literal(y, datatype=XSD.decimal))
+            pointSelector.add(PREZI.x, Literal(round(x), datatype=XSD.decimal))
+            pointSelector.add(PREZI.y, Literal(round(y), datatype=XSD.decimal))
 
             specificResource = Resource(g, BNode())
             specificResource.add(RDF.type, OA.SpecificResource)
@@ -144,7 +184,7 @@ def save_to_rdf(record_data, location_data, format="turtle"):
             annotation.add(OA.textualBody, Literal(kind))
             annotation.add(OA.hasTarget, specificResource.identifier)
 
-    g.serialize("records.ttl", format=format)
+    g.serialize(os.path.join(folder_path, f"{filename}_records.ttl"), format=format)
 
     # And now the locations
 
@@ -176,7 +216,9 @@ def save_to_rdf(record_data, location_data, format="turtle"):
         fragmentSelector.add(
             DCTERMS.conformsTo, URIRef("http://www.w3.org/TR/media-frags/")
         )
-        fragmentSelector.add(RDF.value, Literal(xywh))
+        fragmentSelector.add(
+            RDF.value, Literal(f"{xywh[0]},{xywh[1]},{xywh[2]},{xywh[3]}")
+        )
 
         specificResource = Resource(g, BNode())
         specificResource.add(RDF.type, OA.SpecificResource)
@@ -186,16 +228,22 @@ def save_to_rdf(record_data, location_data, format="turtle"):
         annotation.add(OA.hasBody, location.identifier)
         annotation.add(OA.hasTarget, specificResource.identifier)
 
-    g.serialize("locations.ttl", format=format)
+    g.serialize(os.path.join(folder_path, f"{filename}_locations.ttl"), format=format)
 
 
-def get_records(tree):
+def get_records(tree: ET.ElementTree) -> Union[dict, dict]:
+    """
+    Get the records from the XML tree
+
+    Args:
+        tree (ET.ElementTree): The XML tree
+
+    Returns:
+        Union[dict, dict]: The records and the locations
+    """
 
     # Find all the records (=deeds)
-    records = tree.findall(
-        "MMM:export/MMM:record",
-        namespaces=NS,
-    )
+    records = tree.findall("MMM:export/MMM:record", namespaces=NS,)
 
     record_data = []
     location_data = []
@@ -203,9 +251,9 @@ def get_records(tree):
     for r in records:
 
         # Get scan coordinates (begin/end)
-        (scan_begin_coordinates, scan_begin_scanname), (
-            scan_end_coordinates,
-            scan_end_scanname,
+        (
+            (scan_begin_coordinates, scan_begin_scanname),
+            (scan_end_coordinates, scan_end_scanname,),
         ) = get_scan_coordinates(r)
 
         # Find the elements
@@ -213,8 +261,7 @@ def get_records(tree):
             ".//MMM:record[MMM:field/@name = 'person_name']", namespaces=NS
         )
         location_elements = r.xpath(
-            ".//MMM:record[MMM:field/@name = 'location_name']",
-            namespaces=NS,
+            ".//MMM:record[MMM:field/@name = 'location_name']", namespaces=NS,
         )
 
         # Then, get the _current_ deed uuid, as is used on the SAA website (archief.amsterdam/indexen)
@@ -255,6 +302,15 @@ def get_records(tree):
 
 
 def get_coordinates(e: lxml.etree.Element) -> dict:
+    """
+    Get the coordinates of a location xml element.
+    
+    Args:
+        e: The xml element.
+    
+    Returns:
+        A dict with the coordinates.
+    """
 
     try:
         name = e.xpath(
@@ -281,6 +337,15 @@ def get_coordinates(e: lxml.etree.Element) -> dict:
 
 
 def get_deed_uri(person_uuids: list) -> str:
+    """
+    Get the deed uri from the person uuids.
+    
+    Args:
+        person_uuids (list): A list of person uuids.
+
+    Returns:
+        str: The deed uri.
+    """
 
     for person_uuid in person_uuids:
         deed_uri = person_uuid2deed_uri.get(person_uuid)
@@ -289,7 +354,17 @@ def get_deed_uri(person_uuids: list) -> str:
             return deed_uri
 
 
-def get_scan_coordinates(e: lxml.etree.Element) -> dict:
+def get_scan_coordinates(e: lxml.etree.Element) -> Union[tuple, tuple]:
+    """
+    Get the coordinates of the scan where the deed begins and ends.
+
+    Args:
+        e (lxml.etree.Element): The scan coordinates element
+
+    Returns:
+        tuple: The coordinates of the scan where the deed begins and ends
+
+    """
 
     scan_coordinates = e.xpath(
         "MMM:field[@name = 'scan_coordinates']/MMM:value/text()", namespaces=NS
@@ -315,5 +390,6 @@ if __name__ == "__main__":
 
     INPUTFOLDER = arguments["<inputfolder>"]
     OUTPUTFOLDER = arguments["<outputfolder>"]
+    OUTPUT = arguments.get("--output", "CSV")
 
-    parse_files(INPUTFOLDER, OUTPUTFOLDER)
+    parse_files(INPUTFOLDER, OUTPUTFOLDER, OUTPUT)
