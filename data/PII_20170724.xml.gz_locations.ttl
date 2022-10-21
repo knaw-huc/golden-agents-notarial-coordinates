@@ -1,0 +1,217 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rpp: <https://data.goldenagents.org/ontology/rpp/> .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21df-e843-666d-e053-b784100a1840?location=Location1> a rpp:Location ;
+    rdfs:label "Hofwegen" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21df-e843-666d-e053-b784100a1840?location=Location2> a rpp:Location ;
+    rdfs:label "Rotterdam" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location1> a rpp:Location ;
+    rdfs:label "Waarthuijzen" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location2> a rpp:Location ;
+    rdfs:label "Haarlem" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location3> a rpp:Location ;
+    rdfs:label "Amsterveen" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location4> a rpp:Location ;
+    rdfs:label "Denemarken" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location5> a rpp:Location ;
+    rdfs:label "Buitenveldertsche Polder" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location6> a rpp:Location ;
+    rdfs:label "Bovenkerker Polder" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location1> a rpp:Location ;
+    rdfs:label "St. Marienboom" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location2> a rpp:Location ;
+    rdfs:label "'s-Hertogenbosch" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location3> a rpp:Location ;
+    rdfs:label "Vurnes" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location4> a rpp:Location ;
+    rdfs:label "Iperen" .
+
+<https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location5> a rpp:Location ;
+    rdfs:label "Campen" .
+
+<> a rpp:Location ;
+    rdfs:label "Archangel",
+        "Duijnkerken" .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location4> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3252,2699,190,95" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/64e9fb4bee280bd66aa7912d2f7fd470/scans/NOTA01974000219> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "4244,1280,453,35" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/c1267819eb08e055370cef72858d5e44/scans/KLAC02722000004> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location3> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "2795,2174,342,56" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/09ff4e9776f6be91a8301d8b81e6f0e5/scans/NOTA01957000122> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3017,935,281,44" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/d51b0a8a2faa3107011589b9adae6a89/scans/NOTA00993000348> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "4244,1280,453,35" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/c1267819eb08e055370cef72858d5e44/scans/KLAC02722000004> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location6> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3658,650,65,48" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/09ff4e9776f6be91a8301d8b81e6f0e5/scans/NOTA01957000122> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location1> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "2014,2198,387,95" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/64e9fb4bee280bd66aa7912d2f7fd470/scans/NOTA01974000220> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location2> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3350,2750,294,72" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/09ff4e9776f6be91a8301d8b81e6f0e5/scans/NOTA01957000112> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location5> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "1586,2629,236,64" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/64e9fb4bee280bd66aa7912d2f7fd470/scans/NOTA01974000220> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "4244,1280,453,35" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/c1267819eb08e055370cef72858d5e44/scans/KLAC02722000004> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3017,935,281,44" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/d51b0a8a2faa3107011589b9adae6a89/scans/NOTA00993000348> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location3> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3594,2698,212,78" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/64e9fb4bee280bd66aa7912d2f7fd470/scans/NOTA01974000219> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21df-e843-666d-e053-b784100a1840?location=Location1> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3680,311,267,80" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/359a2e173ff27765f7b505668f490b26/scans/NOTA01958000203> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3017,935,281,44" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/d51b0a8a2faa3107011589b9adae6a89/scans/NOTA00993000348> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21df-e843-666d-e053-b784100a1840?location=Location2> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3566,398,287,67" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/359a2e173ff27765f7b505668f490b26/scans/NOTA01958000198> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location5> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3531,2038,178,55" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/09ff4e9776f6be91a8301d8b81e6f0e5/scans/NOTA01957000122> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3017,935,281,44" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/d51b0a8a2faa3107011589b9adae6a89/scans/NOTA00993000348> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-bc42-666d-e053-b784100a1840?location=Location2> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "1934,788,507,67" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/64e9fb4bee280bd66aa7912d2f7fd470/scans/NOTA01974000220> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location1> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "3438,738,334,32" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/09ff4e9776f6be91a8301d8b81e6f0e5/scans/NOTA01957000122> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <https://archief.amsterdam/indexen/deeds/9d6d21e1-ae23-666d-e053-b784100a1840?location=Location4> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "2116,2720,164,58" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/09ff4e9776f6be91a8301d8b81e6f0e5/scans/NOTA01957000108> ] .
+
+[] a oa:Annotation ;
+    oa:hasBody <> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:FragmentSelector ;
+                    dcterms:conformsTo <http://www.w3.org/TR/media-frags/> ;
+                    rdf:value "4244,1280,453,35" ] ;
+            oa:hasSource <https://data.goldenagents.org/datasets/saa/ead/c1267819eb08e055370cef72858d5e44/scans/KLAC02722000004> ] .
+
