@@ -21,6 +21,40 @@ done
 
 ### Personen
 
+Voor de volledigheid is er ook een CSV gemaakt met alle persoonsnamen en hun coördinaten (xywh). Deze is te vinden in `data/personen.csv.gz` en is gemaakt met de volgende SPARQL-query op de Golden Agentsdata:
+
+```SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rpp: <https://data.goldenagents.org/ontology/roar/>
+PREFIX pnv: <https://w3id.org/pnv#>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+
+SELECT DISTINCT ?id ?label ?xywh ?scanname { 
+    
+    # NB: Person names occur only once in this data. 
+    # If two deeds are on the same scan and have the same name, the person URIs do not necesarrily correspond.
+    ?document a rpp:IndexDocument ;
+            rpp:mentionsPerson ?id ;
+            rpp:onScan ?scan .
+    
+    ?id a rpp:Person ;
+        pnv:hasName ?pn ;
+        rdfs:label ?label .
+    
+    # The PersonName is the body of an Annotation
+    ?annotation a oa:Annotation ;
+                oa:hasBody ?pn ;
+                oa:hasTarget [ oa:hasSource ?scan ;
+                               oa:hasSelector/rdf:value ?xywh ] .
+    
+    BIND(STRAFTER(STR(?scan), 'scans/') AS ?scanname)
+                
+}
+
+```
+
+
 ### Locaties
 
 #### Mapping
