@@ -2,11 +2,13 @@
 
 ## Introductie en achtergrond
 
-Deze dataset bevat een bewerkte versie van de exports van het VeleHanden-indexeringsproject Alle Amsterdamse Akten (https://alleamsterdamseakten.nl/). De data zijn voorzien van URI's op persoonsnamen en records zoals deze in de huidige index op het notarieel archief die beheerd wordt door het Stadsarchief Amsterdam kunnen worden aangetroffen. De exports zijn voor het laatst in het najaar van 2022 geactualiseerd. Belangrijke bewerkingen die in deze dataset kunnen worden aangetroffen en die momenteel niet in de reguliere Stadsarchief-index zijn opgenomen, zijn:
+Deze dataset bevat een bewerkte versie van de exports van het VeleHanden-indexeringsproject Alle Amsterdamse Akten (https://alleamsterdamseakten.nl/). De data zijn voorzien van URI's op persoonsnamen en records zoals deze in de huidige index op het notarieel archief die beheerd wordt door het Stadsarchief Amsterdam ook kunnen worden aangetroffen (https://archief.amsterdam/indexen/persons?f=%7B%22search_s_register_type_title%22:%7B%22v%22:%22Notari%C3%ABle%20archieven%22%7D%7D). De exports zijn voor het laatst in het najaar van 2022 geactualiseerd. Belangrijke bewerkingen die in deze dataset kunnen worden aangetroffen en die momenteel niet in de reguliere Stadsarchief-index zijn opgenomen, zijn:
 
 - Coördinaten op de scan van de begin- en eindmarkers die de documenteenheid (de akte) aanduiden zijn opgenomen;
 - Locatienamen (buiten Amsterdam, niet op straatniveau) zijn opgenomen (nog niet gestandaardiseerd);
 - Coördinaten en afmetingen van kaders die die op de scan locatienamen markeren, zijn opgenomen.
+
+Door opname van scannamen en vooral coördinaten zou deze dataset het bijvoorbeeld gemakkelijker moeten maken om documentherkenning en entiteitsextractie mogelijk te maken op scans van akten waarvan ook HTR beschikbaar is (zie https://transkribus.eu/r/amsterdam-city-archives) en https://gitlab.com/readcoop/webdev/public-docs/-/blob/master/read-and-search/API-README.md).
 
 ### Licentie
 
