@@ -6,7 +6,7 @@ Deze dataset bevat een bewerkte versie van de exports van het VeleHanden-indexer
 
 - Coördinaten op de scan van de begin- en eindmarkers die de documenteenheid (de akte) aanduiden zijn opgenomen;
 - Locatienamen (buiten Amsterdam, niet op straatniveau) zijn opgenomen (nog niet gestandaardiseerd);
-- Coördinaten op de scan die locatienamen aanduiden en de bijbehorende kaders zijn opgenomen.
+- Coördinaten en afmetingen van kaders die die op de scan locatienamen markeren, zijn opgenomen.
 
 ### Licentie
 
