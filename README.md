@@ -1,5 +1,18 @@
 # Golden Agents - Coördinaten Personen/Locaties Notarieel Archief Amsterdam
 
+- [Golden Agents - Coördinaten Personen/Locaties Notarieel Archief Amsterdam](#golden-agents---coördinaten-personenlocaties-notarieel-archief-amsterdam)
+  - [Introductie en achtergrond](#introductie-en-achtergrond)
+    - [Licentie](#licentie)
+  - [Data](#data)
+    - [Formaten](#formaten)
+  - [Methode](#methode)
+    - [Personen](#personen)
+    - [Locaties](#locaties)
+      - [Mappings](#mappings)
+        - [Person uuid to deed uri](#person-uuid-to-deed-uri)
+        - [Scanname to scan uri](#scanname-to-scan-uri)
+  - [Contact](#contact)
+
 ## Introductie en achtergrond
 
 Deze dataset bevat een bewerkte versie van de exports van het VeleHanden-indexeringsproject Alle Amsterdamse Akten (https://alleamsterdamseakten.nl/). De data zijn voorzien van URI's op persoonsnamen en records zoals deze in de huidige index op het notarieel archief die beheerd wordt door het Stadsarchief Amsterdam ook kunnen worden aangetroffen (https://archief.amsterdam/indexen/persons?f=%7B%22search_s_register_type_title%22:%7B%22v%22:%22Notari%C3%ABle%20archieven%22%7D%7D). De exports zijn voor het laatst in het najaar van 2022 geactualiseerd. Belangrijke bewerkingen die in deze dataset kunnen worden aangetroffen en die momenteel niet in de reguliere Stadsarchief-index zijn opgenomen, zijn:
@@ -29,7 +42,7 @@ done
 
 ### Personen
 
-Voor de volledigheid is er ook een CSV gemaakt met alle persoonsnamen en hun coördinaten (xywh). Deze is te vinden in `data/personen.csv.gz` en is gemaakt met de volgende SPARQL-query op de Golden Agentsdata:
+Voor de volledigheid is er ook een CSV gemaakt met alle persoonsnamen en hun coördinaten (xywh). Deze is te vinden in [`data/personen.csv.gz`](data/persons.csv.gz) en is gemaakt met de volgende SPARQL-query op de Golden Agentsdata:
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -65,10 +78,15 @@ SELECT DISTINCT ?id ?label ?xywh ?scanname {
 
 ### Locaties
 
-#### Mapping
+#### Mappings
 
-##### person uuid to deed uri
-```sparql
+De mappingbestanden die gebruikt worden om de personen aan de juiste akte te koppelen én om de Golden Agents scan-URI te vinden, zijn gemaakt met de volgende query's:
+
+##### Person uuid to deed uri
+
+Zie: [`mapping/person_uuid2deed_uri.json.gz`](mapping/person_uuid2deed_uri.json.gz)
+
+```SPARQL
 PREFIX rpp: <https://data.goldenagents.org/ontology/rpp/>
 SELECT ?person_uuid ?deed WHERE {
 
@@ -82,7 +100,10 @@ SELECT ?person_uuid ?deed WHERE {
  }
 ```
 
-##### scanname to scan uri
+##### Scanname to scan uri
+
+Zie: [`mapping/scanname2scan_uri.json.gz`](mapping/scanname2scan_uri.json.gz)
+
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rpp: <https://data.goldenagents.org/ontology/rpp/>
