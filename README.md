@@ -34,7 +34,7 @@ Voor de volledigheid is er ook een CSV gemaakt met alle persoonsnamen en hun co√
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rpp: <https://data.goldenagents.org/ontology/roar/>
+PREFIX rpp: <https://data.goldenagents.org/ontology/rpp/>
 PREFIX pnv: <https://w3id.org/pnv#>
 PREFIX oa: <http://www.w3.org/ns/oa#>
 
@@ -69,7 +69,7 @@ SELECT DISTINCT ?id ?label ?xywh ?scanname {
 
 ##### person uuid to deed uri
 ```sparql
-PREFIX rpp: <https://data.goldenagents.org/ontology/roar/>
+PREFIX rpp: <https://data.goldenagents.org/ontology/rpp/>
 SELECT ?person_uuid ?deed WHERE {
 
     ?deed a rpp:IndexDocument ;
@@ -85,7 +85,7 @@ SELECT ?person_uuid ?deed WHERE {
 ##### scanname to scan uri
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rpp: <https://data.goldenagents.org/ontology/roar/>
+PREFIX rpp: <https://data.goldenagents.org/ontology/rpp/>
 SELECT DISTINCT ?scanname ?scan WHERE {
     
     ?deed a rpp:IndexDocument ;
