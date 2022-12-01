@@ -27,7 +27,9 @@ De huidige index levert deze gegevens (xywh kaders) wel mee voor persoonsnamen, 
 Door opname van scannamen en vooral coördinaten zou deze dataset het bijvoorbeeld gemakkelijker moeten maken om documentherkenning en entiteitsextractie mogelijk te maken op scans van akten waarvan ook HTR beschikbaar is (zie https://transkribus.eu/r/amsterdam-city-archives) en https://gitlab.com/readcoop/webdev/public-docs/-/blob/master/read-and-search/API-README.md).
 
 ### Licentie en hergebruik
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7387918.svg)](https://doi.org/10.5281/zenodo.7387918)
+
+
 
 Deze dataset is vrij te gebruiken en te hergebruiken onder de Creative Commons Naamsvermelding 4.0 Internationaal (CC BY 4.0) licentie. Dit betekent dat je de dataset mag gebruiken en aanpassen, zolang je de bron vermeldt.
 
