@@ -29,9 +29,9 @@ Door opname van scannamen en vooral coördinaten zou deze dataset het bijvoorbee
 ### Licentie en hergebruik
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7387918.svg)](https://doi.org/10.5281/zenodo.7387918)
 
-
-
 Deze dataset is vrij te gebruiken en te hergebruiken onder de Creative Commons Naamsvermelding 4.0 Internationaal (CC BY 4.0) licentie. Dit betekent dat je de dataset mag gebruiken en aanpassen, zolang je de bron vermeldt.
+
+* van Wissen, Leon, Reinders, Jirsi, & van den Heuvel, Pauline. (2022). Golden Agents - Coördinaten Personen/Locaties Notarieel Archief Amsterdam (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7387918
 
 ## Data
 
