@@ -1,0 +1,42 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Golden Agents - Coördinaten Personen/Locaties
+  Notarieel Archief Amsterdam
+message: >-
+  If you use this dataset, please cite it using the
+  metadata from this file.
+type: dataset
+authors:
+  - given-names: Leon
+    name-particle: van
+    family-names: Wissen
+    email: l.vanwissen@uva.nl
+    affiliation: University of Amsterdam
+    orcid: 'https://orcid.org/0000-0001-8672-025X'
+  - given-names: Jirsi
+    family-names: Reinders
+    email: jirsi.reinders@huygens.knaw.nl
+    affiliation: 'Huygens Institute, Amsterdam'
+    orcid: 'https://orcid.org/0000-0003-2702-4371'
+  - given-names: Pauline
+    name-particle: van den
+    family-names: Heuvel
+    email: p.van.den.heuvel@amsterdam.nl
+    affiliation: Amsterdam City Archives
+repository-code: >-
+  https://github.com/knaw-huc/golden-agents-notarial-coordinates
+abstract: >-
+  Dataset met coördinaatgegevens (op een scan) van
+  aktes en de personen en locaties daarin uit het
+  Amsterdamse Notariële archief.
+keywords:
+  - archival documents
+  - iiif
+  - linked open data
+  - golden agents
+license: CC-BY-4.0
+version: v1.0
+date-released: '2022-12-01'

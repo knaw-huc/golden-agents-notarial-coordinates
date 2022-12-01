@@ -2,7 +2,7 @@
 
 - [Golden Agents - Coördinaten Personen/Locaties Notarieel Archief Amsterdam](#golden-agents---coördinaten-personenlocaties-notarieel-archief-amsterdam)
   - [Introductie en achtergrond](#introductie-en-achtergrond)
-    - [Licentie](#licentie)
+    - [Licentie en hergebruik](#licentie-en-hergebruik)
   - [Data](#data)
     - [Formaten](#formaten)
   - [Methode](#methode)
@@ -26,8 +26,10 @@ De huidige index levert deze gegevens (xywh kaders) wel mee voor persoonsnamen, 
 
 Door opname van scannamen en vooral coördinaten zou deze dataset het bijvoorbeeld gemakkelijker moeten maken om documentherkenning en entiteitsextractie mogelijk te maken op scans van akten waarvan ook HTR beschikbaar is (zie https://transkribus.eu/r/amsterdam-city-archives) en https://gitlab.com/readcoop/webdev/public-docs/-/blob/master/read-and-search/API-README.md).
 
-### Licentie
-TBD
+### Licentie en hergebruik
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+Deze dataset is vrij te gebruiken en te hergebruiken onder de Creative Commons Naamsvermelding 4.0 Internationaal (CC BY 4.0) licentie. Dit betekent dat je de dataset mag gebruiken en aanpassen, zolang je de bron vermeldt.
 
 ## Data
 
