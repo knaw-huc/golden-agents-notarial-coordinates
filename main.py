@@ -24,6 +24,7 @@ Options:
 
 import os
 import json
+import gzip
 from typing import Union
 
 import pandas as pd
@@ -60,8 +61,12 @@ def parse_files(input_folder_path: str, output_folder_path: str, output="CSV"):
         print(f"Parsing {fn}...")
         fpath = os.path.join(input_folder_path, fn)
 
-        with open(fpath, 'r', encoding='utf-8') as xml_file:
-            tree = ET.parse(xml_file)
+        if fpath.endswith(".gz"):
+            with gzip.open(fpath, "rt", encoding="utf-8") as f:
+                tree = ET.parse(f)
+        else:
+            with open(fpath, "r", encoding="utf-8") as xml_file:
+                tree = ET.parse(xml_file)
 
         record_data, location_data = get_records(tree)
 
