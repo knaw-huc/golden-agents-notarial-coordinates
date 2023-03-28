@@ -60,7 +60,9 @@ def parse_files(input_folder_path: str, output_folder_path: str, output="CSV"):
         print(f"Parsing {fn}...")
         fpath = os.path.join(input_folder_path, fn)
 
-        tree = ET.parse(fpath)
+        with open(fpath, 'r', encoding='utf-8') as xml_file:
+            tree = ET.parse(xml_file)
+
         record_data, location_data = get_records(tree)
 
         # Let's do this per file, for the sake of memory
